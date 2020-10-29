@@ -45,21 +45,26 @@ app.get('/json/authors/:id', (req, res) => {
 
 
     const newautors={
-        name:authors[req.params.id].name,
-        nationality :authors[req.params.id].nationality
+       Authors:authors[req.params.id],
+      // nationality :authors[req.params.id]
     }
-   res.json(newautors)
+    if(authors[req.params.id]){
+            res.json(newautors)
+        } else{
+            res.json(`The authors with the ID ${[req.params.id]} does not exist `) 
+        }
+   
 })
 
 app.get('/json/authors/:id/books', (req, res) => {
     const newbooks={
-        books:books[req.params.id].books,
+        books:books[req.params.id]
        
     }
-    if(books[req.params.id].books){
+    if(authors[req.params.id]){
         res.json(newbooks)
     }else{
-        res.send(`The books with the ID ${req.params.id} does not exist `) 
+        res.json(`The books  does not exist because authors  with Id${[req.params.id]} not exist `) 
     }
 
     
