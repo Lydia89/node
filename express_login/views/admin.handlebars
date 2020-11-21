@@ -1,0 +1,25 @@
+<p>This page is protected</p>
+<a href="/logout">Logout</a>
+<p>utilisateurs : </p>
+{{!-- <p>{{surname}} </p>
+<p>{{username}}</p>
+<p>{{firstName}}</p> --}}
+<h2>Age: {{date}} ans </h2>
+<h3> username</h3>
+<ul>
+{{#each users}}
+<li>{{this.username}}</li>
+{{/each}}
+</ul>
+<h3>surname</h3>
+<ul>
+{{#each users}}
+<li>{{this.surname}}</li>
+
+{{/each}}
+</ul>
+<ul>
+{{#each users}}
+<li>{{this.date}}</li>
+{{/each}}
+</ul>
