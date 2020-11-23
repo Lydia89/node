@@ -7,7 +7,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user")
 const age = require('./age')
-const port = 3000;
+const port = 8001;
 
 mongoose.connect("mongodb://localhost:27017/authentification_exercise",
     {
@@ -33,7 +33,8 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(new LocalStrategy(User.authenticate()))
+//passport.use(new LocalStrategy(User.authenticate()))
+passport.use(new LocalStrategy({ usernameField: "email", passwordField: "password" }, User.authenticate()));
 // configuration pour utilistation de passpoert avec des sessions
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
@@ -110,7 +111,7 @@ app.post('/signup', (req, res) => {
     console.log('firstName', firstName)
     console.log('email', email)
     //res.send('signup')
-    User.register(new User({ username, email, confirm_password, surname, firstName, date }), password, (err, user) => {
+    User.register(new User({ username, email, surname, firstName, date }), password, (err, user) => {
 
 
         let params = req.body.password;

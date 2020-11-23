@@ -8,11 +8,11 @@ const UserSchema = new mongoose.Schema({
   firstName:String,
   date:Date,
   password: String,
-  confirm_password:String
+  
 });
 
-UserSchema.plugin(passportLocalMongoose);
-
+//UserSchema.plugin(passportLocalMongoose);
+UserSchema.plugin(passportLocalMongoose, { usernameField: 'email' });
 const User = mongoose.model('User', UserSchema);
 
 module.exports = User;
