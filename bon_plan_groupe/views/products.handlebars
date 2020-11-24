@@ -1,0 +1,54 @@
+{{> header }}
+<h1 style="color :red;font-size:50px">Add Products</h1>
+<div class="container">
+    <form enctype='multipart/form-data' action='/signup' method='post'>
+        <div class="form-group ">
+            <label for="inputname" class="col-sm-2 col-form-label">name</label>
+            <div class="col-sm-10">
+                <input type="text" placeholder="name" name="name" />
+            </div>
+        </div>
+        <div class="form-group ">
+
+            <label for="inputprice" class="col-sm-2 col-form-label">price</label>
+
+
+            <div class="col-sm-10">
+                <input type="text" placeholder="price €" name="price" />
+
+            </div>
+        </div>
+        <div class="form-group">
+
+            <label for="inputprice" class="col-sm-2 col-form-label">City</label>
+
+            <div class="col-sm-10">
+
+                <select class="custom-select custom-select-lg mb-3" name ="city">
+                    
+                    <option value="1">Paris</option>
+                    <option value="2">Lyon</option>
+                    <option value="3">Marseille</option>
+                </select>
+
+            </div>
+        </div>
+        
+ 
+<div class="form-group">
+    <label for="exampleFormControlTextarea1">Discription</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Discription" name="discription" ></textarea>
+  </div>
+
+        <input type="file" name='image' />
+        <input type="file" name='image' />
+        <input type="file" name='image' />
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+
+
+    </form>
+</div>
