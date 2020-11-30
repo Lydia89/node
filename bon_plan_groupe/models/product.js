@@ -1,14 +1,31 @@
 const mongoose = require("mongoose")
-const passportLocalMongoose = require('passport-local-mongoose');
+
 const ProductSchema = new mongoose.Schema({
-    name:String,
-    price:Number,
-    discription:String,
-    city:String,
-    image:String
+    name: String,
+    price: Number,
+    discription: String,
+    city:{
+        type:String,
+        enum: ['Paris', 'Lyon', 'Marseille']
+    },
+    images: [String],
+    userId: {
+        type: mongoose.Types.ObjectId,
+        required: true
+    }
+
+
+    // image: {
+    //     type:String,
+    //     enum:['image1','image2']
+    //    // required:true
+
+
+    // }, 
+
+
 })
-ProductSchema.plugin(passportLocalMongoose);
-//ProductSchema.plugin(passportLocalMongoose, { usernameField: 'username' });
+
 
 const Product = mongoose.model('Product', ProductSchema);
 

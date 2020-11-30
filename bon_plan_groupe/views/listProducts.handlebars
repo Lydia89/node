@@ -1,0 +1,59 @@
+{{> header }}
+
+<p> {{username}}</p>
+{{!-- <div class="container">
+    <h1 style="color:red;font-size:50px"></h1>
+
+    <div>
+        <span style="font-size:30px"> name:</span> <span style="color:red;font-size:30px">{{name}} </span>
+    </div>
+    <div>
+        <span style="font-size:30px"> description:</span> <span style="color:red;font-size:30px"> {{description}}</span>
+
+    </div>
+    <div>
+        <span style="font-size:30px"> city: </span> <span style="color :red;font-size:30px">{{city}}</span>
+    </div>
+
+    {{!-- <p>image :</p><img src="./uploads/{{image}}" style="width:100px;" /> --}}
+{{!-- </div> --}}
+
+
+<a href="/products/{{this._id}}"></a>
+
+
+<ul>
+    {{#each products}}
+    <li> name :{{this.name}}</li>
+
+    {{/each}}
+</ul>
+<ul>
+    {{#each products}}
+    <li> price :{{this.price}} <i class="fas fa-euro-sign"></i> </li>
+
+    {{/each}}
+</ul>
+<ul>
+    {{#each products}}
+    <i class="fas fa-map-marker-alt"></i>
+    <li> city:{{this.city}}</li>
+
+    {{/each}}
+</ul>
+<ul>
+    {{#each products}}
+    <li> discription :{{this.discription}}</li>
+
+    {{/each}}
+</ul>
+<ul>
+    {{!-- {{#each products}} --}}
+    {{!-- <li> image :{{this.image}}</li>  --}}
+
+    {{#each products}}
+
+    {{#each images}}
+    <li> <img src="./uploads/{{this}}" style="width:100px;" alt="image" /></li>
+    {{/each}}
+    {{/each}}

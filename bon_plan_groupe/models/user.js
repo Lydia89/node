@@ -5,7 +5,13 @@ const UserSchema = new mongoose.Schema({
     firstName:String,
     password:String,
     surname:String,
-    profilePicture:String
+    profilePicture:String,
+
+    // addProduct:{
+    //     type:String,
+    //     ref:'Product'
+
+    // }
 })
 //UserSchema.plugin(passportLocalMongoose);
 UserSchema.plugin(passportLocalMongoose, { usernameField: 'username' });
